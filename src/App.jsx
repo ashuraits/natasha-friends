@@ -133,8 +133,8 @@ export default function App() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            width: '100px',
-            height: '100px',
+            width: '90px',
+            height: '90px',
             objectFit: 'cover',
             borderRadius: '50%',
             filter: 'drop-shadow(0 0 12px rgba(212,168,83,0.25))',
@@ -160,9 +160,9 @@ export default function App() {
           {wish && (
             <motion.div
               key={wish}
-              initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              transition={{ duration: 1.5, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
               className="w-full relative"
             >
               {/* Outer glow */}
@@ -219,16 +219,36 @@ export default function App() {
                   ✦
                 </div>
 
-                <blockquote
-                  className="text-xl md:text-3xl leading-loose font-light"
+                <motion.blockquote
+                  className="text-xl md:text-3xl font-light"
                   style={{
-                    color: '#f7edd8',
-                    textShadow: '0 0 60px rgba(212,140,40,0.15)',
                     margin: 0,
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    justifyContent: 'center',
+                    columnGap: '0.35em',
+                    rowGap: '0.55em',
+                  }}
+                  initial="hidden"
+                  animate="visible"
+                  variants={{
+                    visible: { transition: { staggerChildren: 0.11, delayChildren: 0.7 } },
                   }}
                 >
-                  {wish}
-                </blockquote>
+                  {wish.split(' ').map((word, i) => (
+                    <motion.span
+                      key={i}
+                      variants={{
+                        hidden: { opacity: 0, filter: 'blur(6px)', y: 5 },
+                        visible: { opacity: 1, filter: 'blur(0px)', y: 0 },
+                      }}
+                      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+                      style={{ color: '#f7edd8', textShadow: '0 0 60px rgba(212,140,40,0.15)' }}
+                    >
+                      {word}
+                    </motion.span>
+                  ))}
+                </motion.blockquote>
               </div>
             </motion.div>
           )}
