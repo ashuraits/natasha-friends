@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import wishes from './wishes.json'
-import logo from './assets/logo.png'
 
 function getCookie(name) {
   const value = `; ${document.cookie}`
@@ -124,22 +123,6 @@ export default function App() {
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center gap-8 md:gap-10 text-center max-w-xl w-full">
-
-        {/* Logo */}
-        <motion.img
-          src={logo}
-          alt="Natasha Mind Body Soul"
-          initial={{ opacity: 0, scale: 0.85 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
-          style={{
-            width: '90px',
-            height: '90px',
-            objectFit: 'cover',
-            borderRadius: '50%',
-            filter: 'drop-shadow(0 0 12px rgba(212,168,83,0.25))',
-          }}
-        />
 
         {/* Header ornament */}
         <HeaderOrnament />
