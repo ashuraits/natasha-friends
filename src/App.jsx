@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import wishes from './wishes.json'
+import logo from './assets/logo.png'
 
 function getCookie(name) {
   const value = `; ${document.cookie}`
@@ -124,6 +125,22 @@ export default function App() {
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center gap-8 md:gap-10 text-center max-w-xl w-full">
 
+        {/* Logo */}
+        <motion.img
+          src={logo}
+          alt="Natasha Mind Body Soul"
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
+          style={{
+            width: '100px',
+            height: '100px',
+            objectFit: 'cover',
+            borderRadius: '50%',
+            filter: 'drop-shadow(0 0 12px rgba(212,168,83,0.25))',
+          }}
+        />
+
         {/* Header ornament */}
         <HeaderOrnament />
 
@@ -163,7 +180,7 @@ export default function App() {
               <div
                 style={{
                   position: 'relative',
-                  padding: 'clamp(2.5rem, 7vw, 4rem) clamp(2rem, 8vw, 4rem)',
+                  padding: 'clamp(3rem, 9vw, 5rem) clamp(2.5rem, 10vw, 5.5rem)',
                   background: 'rgba(212,168,83,0.03)',
                   border: '1px solid rgba(212,168,83,0.18)',
                   borderRadius: '6px',
@@ -262,13 +279,14 @@ export default function App() {
             }}
           />
           <span
-            className="relative flex items-center justify-center w-full px-8 py-4 md:px-12 rounded-full text-base md:text-lg tracking-wide font-normal"
+            className="relative flex items-center justify-center w-full px-8 py-4 md:px-12 rounded-full text-base md:text-lg font-medium"
             style={{
               background: 'linear-gradient(135deg, #b8862a 0%, #e2b94a 45%, #c9920e 100%)',
-              color: '#0a0500',
+              color: '#1a0800',
+              letterSpacing: '0.06em',
               boxShadow:
                 '0 4px 28px rgba(212,168,83,0.3), inset 0 1px 0 rgba(255,255,255,0.2)',
-              letterSpacing: '0.04em',
+              WebkitFontSmoothing: 'antialiased',
             }}
           >
             לגלות את הריטריט של נטשה
